@@ -1,0 +1,510 @@
+/* Style for recipe links in the recipes list */
+/* NOTE: These base styles are now overridden by the more specific .recipe-link below */
+.recipe-link {
+	color: #d4a373;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 1.08rem;
+	transition: color 0.2s;
+}
+.recipe-link:hover {
+	color: #b97a56;
+	text-decoration: none;
+}
+
+/* Style for back to recipes link */
+a[href="index.html"] {
+	color: #d4a373;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 1.02rem;
+	transition: color 0.2s;
+}
+a[href="index.html"]:hover {
+	color: #b97a56;
+	text-decoration: none;
+}
+/* SPA section visibility */
+section[hidden] {
+	display: none !important;
+}
+/* Center recipe titles only in recipes section */
+#recipes details summary {
+	text-align: center;
+	font-size: 1.15rem;
+}
+/* Intro Image Gallery Styling */
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.intro-img {
+  max-width: 48%; /* Allows two images side-by-side on desktop */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+/* RECIPE VISIBILITY FIX: FINAL CLEANUP */
+
+/* Remove the default arrow icon for all details tags */
+details summary::marker, details summary::-webkit-details-marker {
+    content: '';
+    display: none;
+}
+/* Also target the pseudo-element used in previous CSS attempts to hide it */
+details summary::after {
+  content: none !important; 
+}
+
+/* Ensure the summary title is not clickable, as the content is always open */
+details summary {
+	font-weight: bold;
+	cursor: default; 
+	color: #f5f2f0;
+	position: relative;
+	/* Clean up previous conflicting styles */
+	transition: none;
+}
+
+/* Styling for the content div (now targeted directly) */
+details > div {
+	/* Ensure content is always fully visible, overriding any browser or previous script defaults */
+	display: block !important;
+	opacity: 1 !important;
+	max-height: none !important;
+	overflow: visible !important;
+	padding-top: 0.5rem; /* Add some space below the summary */
+}
+
+/* END RECIPE VISIBILITY FIX */
+
+
+form#contactForm {
+	display: flex;
+	flex-direction: column;
+	gap: 0.7rem;
+	background: #46302b;
+	padding: 1.2rem;
+	border-radius: 8px;
+	margin-top: 1.5rem;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+form#contactForm label {
+	color: #d4a373;
+	font-weight: 500;
+}
+form#contactForm input,
+form#contactForm textarea {
+	border: none;
+	border-radius: 4px;
+	padding: 0.6rem;
+	font-size: 1rem;
+	background: #f5f2f0;
+	color: #2b1d1a;
+	margin-bottom: 0.2rem;
+}
+form#contactForm button {
+	background: #d4a373;
+	color: #2b1d1a;
+	border: none;
+	border-radius: 4px;
+	padding: 0.7rem 1.2rem;
+	font-size: 1rem;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+form#contactForm button:hover {
+	background: #b97a56;
+	color: #fff;
+}
+/* Mobile responsiveness */
+@media (max-width: 700px) {
+	header {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 1rem;
+	}
+  .image-gallery {
+    flex-direction: column; /* Stack images vertically on small screens */
+  }
+  .intro-img {
+    max-width: 100%; /* Full width on mobile */
+  }
+	header img {
+		margin-bottom: 1rem;
+	}
+	nav {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+	nav a {
+		margin: 0 0.5rem;
+		font-size: 1rem;
+	}
+	section {
+		padding: 1rem;
+	}
+	.recipe-img {
+		max-height: 150px;
+	}
+	.whatsapp-float, #backToTop {
+		bottom: 10px;
+		right: 10px;
+		left: auto;
+		font-size: 1.1rem;
+		padding: 0.5rem 0.7rem;
+	}
+	h1, h2 {
+		font-size: 1.3rem;
+	}
+	details > div { /* Target the content div directly */
+		font-size: 0.98rem;
+	}
+}
+
+/* Instant fade-in (no stagger) */
+
+.fade-in-instant {
+	opacity: 1;
+	transform: none;
+	transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-instant.show {
+	opacity: 1;
+	transform: translateY(0);
+}
+#intro.fade-in {
+	transition-delay: 0.8s; /* text appears slightly after logo */
+}
+/* Fade-in + slide-up animation */
+
+.fade-in {
+	opacity: 1;
+	transform: none;
+	transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.show {
+	opacity: 1;
+	transform: translateY(0);
+}
+nav a.active {
+	color: #d4a373; /* warm accent */
+	border-bottom: 2px solid #d4a373;
+	padding-bottom: 0.2rem;
+}
+html {
+	scroll-behavior: smooth;
+}
+
+/* General Styles and Variables */
+:root {
+	--primary-dark: #2b1d1a; /* Dark Coffee */
+	--accent-color: #d4a373; /* Gold/Tan Accent */
+	--text-light: #f5f2f0; /* Soft Cream */
+	--bg-medium: #3a2520; /* Medium Brown */
+}
+
+body {
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		margin: 0;
+		padding: 0;
+		background-color: var(--primary-dark);
+		/* Subtle grayish color and CONSISTENT size for all default text ('Rooted in...') */
+        color: #e0e0e0;
+        font-size: 1.0rem; /* Consistent body font size */
+		line-height: 1.6;
+		opacity: 0;                     
+		animation: pageFadeIn 1.2s ease forwards;
+}
+
+	@keyframes pageFadeIn {
+		to {
+			opacity: 1;
+		}
+	}
+
+header {
+	background: var(--bg-medium);
+	padding: 1rem 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.4); /* subtle shadow */
+}
+
+header img {
+	height: 50px;
+	opacity: 0;
+	transform: scale(0.8);
+	animation: logoFadeIn 1s ease forwards;
+}
+
+@keyframes logoFadeIn {
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+nav a {
+	color: var(--text-light);
+	margin: 0 1rem;
+	text-decoration: none;
+	font-weight: 500;
+	position: relative;
+	transition: color 0.3s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+	color: var(--accent-color);  
+	transform: scale(1.05); 
+}
+
+section {
+	padding: 2rem;
+	max-width: 900px;
+	margin: auto;
+}
+
+h1, h2 {
+	text-align: center;
+	color: var(--accent-color);
+}
+
+h4 {
+	margin-top: 1rem;
+	color: #f0e3dc;
+}
+
+details {
+		background: var(--bg-medium);
+		margin: 1rem 0;
+		padding: 1rem;
+		border-radius: 8px;
+		box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	details:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+	}
+
+details[open] {
+	background: #46302b;
+}
+
+.recipe-img {
+	width: 100%;
+	max-height: 250px;
+	object-fit: cover;
+	margin: 1rem 0;
+	border-radius: 8px;
+}
+
+footer {
+	background: var(--bg-medium);
+	color: var(--text-light);
+	text-align: center;
+	padding: 1.5rem;
+	margin-top: 2rem;
+}
+
+#backToTop {
+	position: fixed;
+	bottom: 20px;
+	left: 20px;
+	background: var(--accent-color);
+	color: var(--primary-dark);
+	font-size: 1.2rem;
+	font-weight: bold;
+	text-align: center;
+	padding: 0.7rem 1.2rem;
+	border-radius: 10px; 
+	border: none;
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+	text-decoration: none;
+	z-index: 1000;
+	transition: background 0.2s ease, transform 0.2s ease;
+	display: none; /* hidden by default, script controls visibility */
+}
+
+#backToTop:hover {
+	background: var(--text-light);
+	transform: scale(1.1);
+}
+
+/* --- NEW PREMIUM MENU SHOWCASE STYLES (INDEX PAGE) --- */
+
+/* 1. Container Styling: Faded, Ornate, Non-Linear Frame */
+.menu-list {
+    list-style: none;
+    padding: 0;
+    max-width: 550px; 
+    margin: 3rem auto;
+    position: relative; 
+    
+    /* FADE BORDER: Use rgba for background/shadows to fade the frame */
+    padding: 3rem 2rem; 
+    border-radius: 40px; 
+    background-color: rgba(58, 37, 32, 0.4); /* Faded background color */
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.3), /* Faded outer shadow */
+        inset 0 0 0 4px rgba(212, 163, 115, 0.1), /* Faded inner "border" */
+        inset 0 0 0 10px rgba(43, 29, 26, 0.15); /* Faded inner shadow */
+    
+    font-family: 'Arial Black', sans-serif; 
+}
+
+/* 2. Pseudo-elements for "Corner Flowers" / Flourishes (Faded) */
+.menu-list::before,
+.menu-list::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: rgba(212, 163, 115, 0.08); /* Faded background color */
+    border-radius: 50%; 
+    z-index: 1; 
+}
+
+/* Top-left flourish */
+.menu-list::before {
+    top: -15px; 
+    left: -15px;
+    transform: rotate(45deg); 
+    box-shadow: 0 0 15px rgba(212, 163, 115, 0.1); /* Faded shadow */
+}
+
+/* Bottom-right flourish */
+.menu-list::after {
+    bottom: -15px; 
+    right: -15px;
+    transform: rotate(225deg); 
+    box-shadow: 0 0 15px rgba(212, 163, 115, 0.1); /* Faded shadow */
+}
+
+/* 3. Menu Item Styling: Core for dot leader, flex layout */
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; 
+    margin-bottom: 1.5rem; 
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
+    transition: all 0.3s ease;
+    position: relative; 
+    z-index: 2; 
+}
+
+/* 4. Recipe Link Styling: Matches body text size (1.0rem) and is bold */
+.recipe-link {
+    color: #b5b5b5; 
+    text-decoration: none;
+    font-weight: bold; 
+    font-size: 1.0rem; /* Consistent size */
+    flex-grow: 1; 
+    display: flex; 
+    align-items: center; 
+    line-height: 1.2; 
+    letter-spacing: 0.01em; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); 
+    opacity: 1 !important; /* Ensures full visibility */
+}
+
+/* 5. The Dot Leader Effect */
+.menu-item::after {
+    content: "....................................................................................................................................................................................................................................";
+    white-space: nowrap; 
+    overflow: hidden; 
+    letter-spacing: 0.3em; 
+    color: var(--accent-color); 
+    flex-shrink: 1; 
+    margin: 0 1rem; 
+    font-weight: normal;
+    display: block; 
+    line-height: 1;
+    min-width: 100px; 
+    opacity: 1 !important; /* Ensures full visibility */
+    
+    /* FIX: Allow clicks to pass through the dots to the link */
+    pointer-events: none; 
+}
+
+/* 6. Hover Effect: High contrast accent */
+.menu-item:hover {
+    background-color: rgba(43, 29, 26, 0.2); 
+    transform: none; 
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.menu-item:hover .recipe-link {
+    color: var(--accent-color); 
+}
+
+.menu-item:hover::after {
+    color: var(--text-light); 
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+/* --- INDIVIDUAL RECIPE PAGE LAYOUT STYLES (for detail pages) --- */
+
+.recipe-book-page {
+    background-color: var(--text-light); 
+    color: var(--primary-dark); 
+    padding: 3rem 2rem;
+    margin: 2rem auto;
+    max-width: 700px;
+    border-radius: 12px; 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); 
+    border: 3px solid var(--accent-color); 
+}
+
+.recipe-book-page h2 {
+    color: var(--accent-color); 
+    font-family: Georgia, serif; 
+    text-align: left;
+    border-bottom: 2px solid #b97a56;
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+    font-size: 1.6rem;
+}
+
+.recipe-book-page ul,
+.recipe-book-page ol {
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 1.0rem; /* Consistent list text size */
+}
+
+.recipe-book-page li {
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px dashed rgba(43, 29, 26, 0.1); 
+    padding-bottom: 0.5rem;
+}
+
+.recipe-book-page li:last-child {
+    border-bottom: none;
+}
+
+/* Override the main section padding for the recipe pages when using the card */
+body > main > section {
+    padding: 0; 
+}
