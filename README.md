@@ -9,9 +9,10 @@ Kaamoto Solutions provides comprehensive software solutions tailored to address 
 ## Solutions Included
 
 - Business process automation
-- Data management systems
+- Data management 
 - Integration tools
 - Custom software implementations
+- Feedback
 
 ## Getting Started
 
